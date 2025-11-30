@@ -889,7 +889,6 @@
                 }
             }, 1000);
         }
-
         // 按钮点击事件处理
         ui.startBtn.addEventListener('click', async function() {
             log('点击了进入按钮...');
@@ -925,9 +924,6 @@
             currentState = STATE.IDLE;
             ui.startOverlay.classList.add('hidden');
             ui.uiLayer.style.display = 'flex';
-
-            // 启动自动倒数
-            startAutoEntryCountdown();
         });
 
         async function initAudio() {

@@ -344,7 +344,7 @@
         let lastHandX = 0;
         let autoRotateSpeed = 0.005;
 
-        // --- 自动倒数变量 ---
+                // --- 自动倒数变量 ---
         let autoEntryTimer = null;
         let autoEntrySeconds = 10;
         
@@ -380,9 +380,7 @@
             page2: document.getElementById('card-page-2'),
             toPage2Btn: document.getElementById('to-page-2-btn'),
             textContainer1: document.getElementById('typewriter-text-1'),
-            textContainer2: document.getElementById('typewriter-text-2'),
-            // 自动倒数文本
-            autoCountdownText: document.getElementById('auto-countdown-text')
+            textContainer2: document.getElementById('typewriter-text-2')
         };
 
         // 立即初始化 Three.js
@@ -678,14 +676,6 @@
 
         function startSequence() {
             if (currentState !== STATE.IDLE || transitionLock) return;
-                        
-            // 清除自动倒数计时器
-            if (autoEntryTimer) {
-                clearInterval(autoEntryTimer);
-                autoEntryTimer = null;
-            }
-            ui.autoCountdownText.classList.add('hidden');
-
             log('检测到手势，开始倒计时序列');
             transitionLock = true;
             currentState = STATE.COUNTDOWN;
@@ -863,33 +853,6 @@
             ui.topBanner.classList.remove('hidden');
         });
 
-        
-        // --- 自动倒数功能 ---
-        function startAutoEntryCountdown() {
-            autoEntrySeconds = 10;
-            ui.autoCountdownText.classList.remove('hidden');
-            ui.autoCountdownText.innerText = `若未检测到手势，${autoEntrySeconds}秒后自动开始...`;
-            
-            // 清除旧的计时器（如果存在）
-            if (autoEntryTimer) clearInterval(autoEntryTimer);
-
-            autoEntryTimer = setInterval(() => {
-                autoEntrySeconds--;
-                if (autoEntrySeconds > 0) {
-                    ui.autoCountdownText.innerText = `若未检测到手势，${autoEntrySeconds}秒后自动开始...`;
-                } else {
-                    clearInterval(autoEntryTimer);
-                    autoEntryTimer = null;
-                    ui.autoCountdownText.classList.add('hidden');
-                    // 只有在还是 IDLE 状态时才自动开始，防止用户刚好在此时触发了手势
-                    if (currentState === STATE.IDLE) {
-                        log('自动倒数结束，触发开始序列');
-                        startSequence();
-                    }
-                }
-            }, 1000);
-        }
-
         // 按钮点击事件处理
         ui.startBtn.addEventListener('click', async function() {
             log('点击了进入按钮...');
@@ -925,9 +888,6 @@
             currentState = STATE.IDLE;
             ui.startOverlay.classList.add('hidden');
             ui.uiLayer.style.display = 'flex';
-
-            // 启动自动倒数
-            startAutoEntryCountdown();
         });
 
         async function initAudio() {
