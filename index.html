@@ -10,7 +10,7 @@
     <!-- Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Serif+SC:wght@500;700&display=swap" rel="stylesheet"> -->
     
     <!-- MediaPipe Hands -->
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1640029074/camera_utils.js" crossorigin="anonymous"></script>
@@ -19,6 +19,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js" crossorigin="anonymous"></script>
 
     <style>
+
+/* noto-serif-sc-regular - latin */@font-face {  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */  font-family: 'Noto Serif SC';  font-style: normal;  font-weight: 400;  src: url('../fonts/noto-serif-sc-v34-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */}/* noto-serif-sc-500 - latin */@font-face {  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */  font-family: 'Noto Serif SC';  font-style: normal;  font-weight: 500;  src: url('../fonts/noto-serif-sc-v34-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */}/* noto-serif-sc-700 - latin */@font-face {  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */  font-family: 'Noto Serif SC';  font-style: normal;  font-weight: 700;  src: url('../fonts/noto-serif-sc-v34-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */}
+/* dancing-script-regular - latin */@font-face {  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */  font-family: 'Dancing Script';  font-style: normal;  font-weight: 400;  src: url('../fonts/dancing-script-v29-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */}/* dancing-script-500 - latin */@font-face {  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */  font-family: 'Dancing Script';  font-style: normal;  font-weight: 500;  src: url('../fonts/dancing-script-v29-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */}/* dancing-script-700 - latin */@font-face {  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */  font-family: 'Dancing Script';  font-style: normal;  font-weight: 700;  src: url('../fonts/dancing-script-v29-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */}
+        .title {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .content {
+            font-family: 'Noto Serif SC', serif;
+        }
         :root { --bg-gradient: radial-gradient(circle at center, #1a0b1a 0%, #000000 100%); }
         body { 
             margin: 0; overflow: hidden; 
